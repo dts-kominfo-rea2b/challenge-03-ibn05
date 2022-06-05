@@ -1,46 +1,66 @@
 // ! JANGAN DIMOFIDIKASI
 const dataBelanjaan = [
-  {
-    id: "D-10001",
-    nama: "Minyak Goreng Delima",
-    harga: 25000,
-    kuantitas: 2,
-  },
-  {
-    id: "D-10020",
-    nama: "Beras Mamos",
-    harga: 48000,
-    kuantitas: 1,
-  },
-  {
-    id: "F-00010",
-    nama: "Larutan Cap Kaki Empat",
-    harga: 7500,
-    kuantitas: 8,
-  },
+    {
+        id: "D-10001",
+        nama: "Minyak Goreng Delima",
+        harga: 25000,
+        kuantitas: 2,
+    },
+    {
+        id: "D-10020",
+        nama: "Beras Mamos",
+        harga: 48000,
+        kuantitas: 1,
+    },
+    {
+        id: "F-00010",
+        nama: "Larutan Cap Kaki Empat",
+        harga: 7500,
+        kuantitas: 8,
+    },
 ];
 
 // boleh dimodifikasi bila ingin menggunakan deklarasi fungsi yang normal
-const listBelanjaan = null;
+const listBelanjaan = (datas) => {
+    if (datas.length > 0) {
+        let lists = [];
+        datas.forEach((data, i) => {
+            list = `'- ${data.nama} x ${data.kuantitas}'`;
+            if (i + 1 != datas.length) list = list + ",";
+            lists.push(list);
+        });
+
+        return lists;
+    }
+    return false;
+};
 
 // boleh dimodifikasi bila ingin menggunakan deklarasi fungsi yang normal
-const totalBelanjaan = null;
+const totalBelanjaan = (datas) => {
+    let total = 0;
+    if (datas.length > 0) {
+        datas.forEach((data, i) => {
+            total += data.harga * data.kuantitas;
+        });
+    }
+    return total;
+};
 
 // ! JANGAN DIMODIFIKASI
 const main = () => {
-  console.log("Selamat datang customer");
+    console.log("Selamat datang customer");
 
-  console.log("Belanjaan Anda adalah:");
-  console.log(listBelanjaan?.(dataBelanjaan)?.join("\n"));
-  console.log(
-    "\nTotal Belanjaan Anda adalah Rp. " + totalBelanjaan?.(dataBelanjaan)
-  );
+    console.log("Belanjaan Anda adalah:");
+    console.log(listBelanjaan?.(dataBelanjaan)?.join("\n"));
+    console.log(
+        "\nTotal Belanjaan Anda adalah Rp. " + totalBelanjaan?.(dataBelanjaan)
+    );
 };
 
 main();
 
 module.exports = {
-  dataBelanjaan,
-  listBelanjaan,
-  totalBelanjaan,
+    dataBelanjaan,
+    listBelanjaan,
+    totalBelanjaan,
 };
