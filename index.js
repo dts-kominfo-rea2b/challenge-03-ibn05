@@ -25,9 +25,7 @@ const listBelanjaan = (datas) => {
     if (datas.length > 0) {
         let lists = [];
         datas.forEach((data, i) => {
-            list = `- ${data.nama} x ${data.kuantitas}`;
-            if (i + 1 != datas.length) list = list + ",";
-            lists.push(list);
+            lists.push(`- ${data.nama} x ${data.kuantitas}`);
         });
 
         return lists;
